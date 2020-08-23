@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title class="title">List Your Car</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/be61b80c2c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav
+      class="navbar"
+      id="navbar"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <i class="fas fa-car"></i>
+        </a>
+
+        <a
+          role="button"
+          class="navbar-burger burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="/">
+            Home
+          </a>
+          <a class="navbar-item" href="/profile">
+            Profile
+          </a>
+          <a class="navbar-item" href="/cars">
+            Rent a Ride
+          </a>
+          <a class="navbar-item" href="/car">
+            List Car
+          </a>
+        </div>
+      </div>
+    </nav>
+    <h1 class="importTitle">List Your Ride</h1>
+
+    <form
+      class="importForm"
+      action="/createcar"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <label for="name">Type:</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Make/Model of Car"
+      />
+      <br />
+      <br />
+      <div>
+        <label>Upload Image:</label>
+        <br />
+
+        <input type="file" name="upload_pic" />
+      </div>
+      <br /><br />
+      <label for="location">Location:</label>
+      <input type="text" name="location" id="location" placeholder="City?" />
+      <br />
+      <br />
+      <label for="price">Price:</label>
+      <input
+        type="text"
+        name="price"
+        id="price"
+        placeholder="How much per day?"
+      />
+      <br />
+      <br />
+      <label for="availability">Availability</label>
+      <input
+        type="text"
+        name="availability"
+        id="availability"
+        placeholder="What days?"
+      />
+      <br />
+      <br />
+      <input type="submit" value="Upload Your Ride" />
+    </form>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

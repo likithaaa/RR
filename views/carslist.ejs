@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rent a Ride</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/be61b80c2c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav
+      class="navbar"
+      id="navbar"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <i class="fas fa-car"></i>
+        </a>
+
+        <a
+          role="button"
+          class="navbar-burger burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="/">
+            Home
+          </a>
+          <a class="navbar-item" href="/profile">
+            Profile
+          </a>
+          <a class="navbar-item" href="/cars">
+            Rent a Ride
+          </a>
+          <a class="navbar-item" href="/car">
+            List Car
+          </a>
+        </div>
+      </div>
+    </nav>
+    <br />
+
+    <h1 class="title">Cars Available to Rent</h1>
+    <ul class="timeline">
+      <% for (var i = 0; i < cars.length; i++) { %>
+
+      <li class="cars">
+        <img src="<%= '/uploads/' + cars[i].image %>" max-width="50px;" />
+      </li>
+      <li>
+        <%= cars[i].name %>
+      </li>
+      <li>
+        <%= cars[i].location %>
+      </li>
+      <li>
+        <%= cars[i].price %>
+      </li>
+      <li>
+        <%= cars[i].availability %>
+      </li>
+      <li>
+        <button>BOOK THIS RIDE</button>
+      </li>
+      <br />
+      <% } %>
+    </ul>
+  </body>
+</html>

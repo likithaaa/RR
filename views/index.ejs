@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rented Rides</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/be61b80c2c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#form1').submit(function (event) {
+          event.preventDefault();
+          $.ajax({
+            type: 'POST',
+            url: '/',
+            data: $('#form1').serialize(),
+            dataType: 'json',
+            success: function (response) {
+              $('#form1')[0].reset();
+              document.getElementById('check').innerHTML = response.Success;
+              setTimeout(function () {
+                document.getElementById('check').innerHTML = '';
+              }, 3000);
+              if (response.Success == 'You are regestered,You can login now.') {
+                document.getElementById('aa').click();
+              }
+            },
+            error: function () {},
+          });
+        });
+    </script>
+  </head>
+
+  <body>
+    <nav
+      class="navbar"
+      id="navbar"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <i class="fas fa-car"></i>
+        </a>
+
+        <a
+          role="button"
+          class="navbar-burger burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="/">
+            Home
+          </a>
+          <a class="navbar-item" href="/profile">
+            Profile
+          </a>
+          <a class="navbar-item" href="/cars">
+            Rent a Ride
+          </a>
+          <a class="navbar-item" href="/car">
+            List Car
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div style="background-image: url('css/images/roadLine.gif');"></div>
+    <div class="col-md-4 col-md-offset-4">
+      <h1 class="title">Rented Rides</h1>
+      <h3 class="greet">
+        rent your car out while you're
+        <span class="words one">taking a vacay!</span>
+        <span class="words two">binge watching your show! </span>
+        <span class="words three">working!</span>
+      </h3>
+      <br />
+      <br />
+      <br />
+
+      Signup or login to get started
+      <br />
+      <div class="form-group">
+        <form id="form1" method="post">
+          <input
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            required=""
+            class="form-control"
+          /><br />
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            required=""
+            class="form-control"
+          /><br />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required=""
+            class="form-control"
+          /><br />
+          <input
+            type="password"
+            name="passwordConf"
+            placeholder="Confirm Password"
+            required=""
+            class="form-control"
+          /><br />
+          <input type="submit" value="Register" class="btn btn-success" />
+        </form>
+      </div>
+
+      <div class="mssg bg-danger">
+        <span id="check"></span>
+      </div>
+      <div>
+        <p class="h5">Already Registered! <a href="/login">Login</a></p>
+      </div>
+      <div id="LangTable"><a href="/login" id="aa"></a></div>
+    </div>
+  </body>
+</html>
